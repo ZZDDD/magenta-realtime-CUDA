@@ -1,0 +1,80 @@
+[project]
+name = "magenta-realtime-cuda"
+description = "CUDA/JAX browser host for Magenta RealTime 2."
+readme = "README.md"
+keywords = ["music", "generation", "real-time", "audio", "cuda", "jax", "web"]
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "ZZDDD"}]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dynamic = ["version"]
+
+# The vendored sequence-layers submodule supplies the JAX sequence primitives.
+dependencies = [
+    "ai-edge-litert",
+    "click",
+    "numpy",
+    "scipy",
+    "einops",
+    "safetensors",
+    "typeguard==2.13.3",
+    "jaxtyping",
+    "recurrentgemma[jax]>=1.0.1",
+    "huggingface_hub",
+    "librosa",
+    "resampy",
+    "sentencepiece",
+    "soundfile",
+]
+
+[project.urls]
+Repository = "https://github.com/ZZDDD/magenta-realtime-CUDA"
+Upstream = "https://github.com/magenta/magenta-realtime"
+
+[project.optional-dependencies]
+jax = ["jax==0.10.1", "flax==0.12.7", "optax==0.2.8", "jaxtyping", "typing_extensions"]
+cuda = ["jax[cuda13]==0.10.1", "flax==0.12.7", "optax==0.2.8", "typing_extensions"]
+web = [
+    "fastapi>=0.115",
+    "pydantic>=2.9",
+    "python-multipart>=0.0.12",
+    "uvicorn[standard]>=0.32",
+]
+dev = ["pytest", "pytest-cov"]
+
+[project.scripts]
+mrt = "magenta_rt.cli:main"
+
+[build-system]
+requires = ["flit_core >= 3.12.0, <4"]
+build-backend = "flit_core.buildapi"
+
+# ---------------------------------------------------------------------------
+# Tool configuration
+# ---------------------------------------------------------------------------
+
+[tool.flit.module]
+name = "magenta_rt"
+
+[tool.flit.sdist]
+exclude = ["build/", "dist/", "outputs/", "screenshots/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.pyink]
+line-length = 80
+unstable = true
+pyink-indentation = 2
+pyink-use-majority-quotes = true

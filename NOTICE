@@ -1,0 +1,21 @@
+Magenta RealTime CUDA
+
+Derived from Magenta RealTime 2:
+https://github.com/magenta/magenta-realtime
+Copyright 2026 Google LLC. Licensed under the Apache License, Version 2.0.
+
+This distribution extracts the JAX inference runtime and browser CUDA host from
+an early CUDA extension of the upstream v2.0.3 source. It adapts package metadata,
+CLI entry points, asset download/verification, worker startup, shared UI exports,
+and installation documentation for a standalone CUDA/browser repository.
+The reproduced model card omits the original training hardware/software summary;
+the complete upstream model card remains available from the linked source.
+The model architecture, original model runtime, MusicCoCa, SpectroStream, and
+shared PianoKeyboard/PromptSurface components originate in the upstream project.
+
+The sequence-layers dependency is included as a pinned public git submodule:
+https://github.com/magenta/sequence-layers
+Its license and notices remain in that submodule.
+
+Model weights are downloaded separately from google/magenta-realtime-2.
+See MODEL.md and the upstream model card for attribution and usage terms.

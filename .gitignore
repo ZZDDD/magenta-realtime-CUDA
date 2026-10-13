@@ -1,0 +1,42 @@
+# Environments and dependencies
+.venv*/
+node_modules/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Builds and local runtime data
+dist/
+build/
+outputs/
+.local/
+.cache/
+models/
+checkpoints/
+recordings/
+uploads/
+*.wav
+*.mp3
+*.safetensors
+*.tflite
+*.mlxfn
+*.log
+*.pid
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+credentials*.json
+config.local.*
+
+# Editors and temporary files
+.DS_Store
+.idea/
+.vscode/
+AGENTS.md
+tmp/

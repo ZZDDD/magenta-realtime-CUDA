@@ -1,0 +1,12 @@
+{
+  "name": "magenta-realtime-cuda",
+  "private": true,
+  "workspaces": [
+    "common/react_ui",
+    "web/ui"
+  ],
+  "scripts": {
+    "build": "npm --workspace web-ui run build",
+    "dev": "npm --workspace web-ui run dev"
+  }
+}
